@@ -1,23 +1,23 @@
-on:
-  schedule:
-    - cron: '0 9 * * 1'
-  workflow_dispatch:
+#on:
+#  schedule:
+#    - cron: '0 9 * * 1'
+#  workflow_dispatch:
 
-jobs:
-  linkChecker:
-    runs-on: ubuntu-latest
-    steps:
-      - name: update setuptools
-        run: |
-          python3 -m pip install --upgrade pip setuptools wheel
-      - uses: actions/checkout@v2
-      - name: Link Checker
-        uses: lycheeverse/lychee-action@master
-        with:
-          args: --verbose --no-progress --accept 200,204,206,406,429,999 --include-mail ./sections/*.md
-      - name: Create Issue From File
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          labels: report, automated issue
+#jobs:
+#  linkChecker:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: update setuptools
+#        run: |
+#          python3 -m pip install --upgrade pip setuptools wheel
+#      - uses: actions/checkout@v2
+#      - name: Link Checker
+#        uses: lycheeverse/lychee-action@master
+#        with:
+#          args: --verbose --no-progress --accept 200,204,206,406,429,999 --include-mail ./sections/*.md
+#      - name: Create Issue From File
+#        uses: peter-evans/create-issue-from-file@v5
+#        with:
+#          title: Link Checker Report
+#          content-filepath: ./lychee/out.md
+#          labels: report, automated issue
